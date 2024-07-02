@@ -1,9 +1,10 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { removeTodo, editTodo } from '../features/todo/todoSlice';
 import { Link } from 'react-router-dom'
 
-const Todos = () => {
+function TodoList() {
+
     const todos = useSelector(state => state.todos.todos);
     const dispatch = useDispatch();
 
@@ -21,11 +22,17 @@ const Todos = () => {
 
     return (
         <div className='container mx-auto flex flex-col'>
-            <div className='text-lg font-medium py-4'>Todos</div>
+            <div className='text-2xl font-semibold'>Todos</div>
+            <Link to='/'>
+            <button
+            className=' text-white bg bg-stone-500 border-0 py-2 px-6 focus:outline-none hover:bg-stone-700 rounded text-lg mt-12'>
+                Back
+            </button>
+            </Link>
             <ul className='list-none'>
                 {todos.map((todo) => (
                     <li
-                    className='mt-4 flex justify-between items-center bg-zinc-700 px-4 py-2 rounded'
+                    className='mt-4 flex justify-between items-center bg-zinc-700 px-4 py-2 rounded space-x-48'
                     key={todo.id}
                     >
                     {todo.isEditing ? (
@@ -91,14 +98,9 @@ const Todos = () => {
                     </li>
                 ))}
             </ul>
-            <Link to='/TodoList'>
-            <button
-            className=' text-white bg bg-stone-500 border-0 py-2 px-6 focus:outline-none hover:bg-stone-700 rounded text-lg mt-12'>
-                Todo List
-            </button>
-            </Link>
+            
         </div>
-    );
-};
+    )
+}
 
-export default Todos;
+export default TodoList
