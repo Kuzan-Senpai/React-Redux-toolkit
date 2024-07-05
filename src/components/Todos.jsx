@@ -23,7 +23,7 @@ const Todos = () => {
         <div className='container mx-auto flex flex-col'>
             <div className='text-lg font-medium py-4'>Todos</div>
             <ul className='list-none'>
-                {Array.isArray(todos) && todos?.map((todo) => (
+                {todos.map((todo) => (
                     <li
                     className='mt-4 flex justify-between items-center bg-zinc-700 px-4 py-2 rounded'
                     key={todo.id}
