@@ -30,7 +30,7 @@ function TodoList() {
             </button>
             </Link>
             <ul className='list-none'>
-                {todos.map((todo) => (
+                {Array.isArray(todos) && todos?.map((todo) => (
                     <li
                     className='mt-4 flex justify-between items-center bg-zinc-700 px-4 py-2 rounded space-x-48'
                     key={todo.id}
