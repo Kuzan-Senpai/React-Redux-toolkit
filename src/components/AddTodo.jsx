@@ -9,11 +9,13 @@ function AddTodo() {
     const dispatch = useDispatch()
 
     const addTodoHandler = (e) => {
-        e.preventDefault()
-
-
-        dispatch(addTodo(input))
-        setiInput('')
+        if (e && typeof e.preventDefault === 'function') {
+            e.preventDefault()
+        }
+        if (input.trim() !== '') {
+            dispatch(addTodo(input))
+            setiInput('')
+        }
     }
 
 
